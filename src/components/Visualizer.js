@@ -8,7 +8,7 @@ const Visualizer = ({data}) => {
             return(
                 <Box display={'flex'} justifyContent='flex-end' textAlign={'center'} flexDirection='column'>
                     <p>{d}</p>
-                    <Box roundedTop={'sm'} border={'1px'} borderColor={'purple.200'} bg={'purple.300'} style={{height: `${d}px`}}></Box>
+                    <Box roundedTop={'sm'} border={'1px'} borderColor={'blue.200'} bg={'blue.300'} style={{height: `${d}px`}}></Box>
                 </Box>
             );
         })}

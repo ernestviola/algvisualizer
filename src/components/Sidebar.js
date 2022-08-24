@@ -29,11 +29,11 @@ const Sidebar = ({ generateArr, sort }) => {
                 <Button onClick={() => {
                     generateArr(formState)
                 }}
-                    colorScheme='purple'
+                    colorScheme='blue'
                 >
                     Generate Array
                 </Button>
-                <Button onClick={sort} colorScheme='purple' variant='outline'>
+                <Button onClick={sort} colorScheme='blue' variant='outline'>
                     Sort
                 </Button>
             </Flex>
