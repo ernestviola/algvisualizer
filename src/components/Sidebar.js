@@ -1,43 +1,43 @@
 import React, { useState } from 'react'
-import { Box, Button, Flex, FormControl, FormLabel, Slider, SliderFilledTrack, SliderThumb, SliderTrack } from '@chakra-ui/react';
+import { Box, Button, Flex, FormControl, FormLabel, Slider, SliderFilledTrack, SliderThumb, SliderTrack, Select } from '@chakra-ui/react';
 
-const Sidebar = ({generateArr, sort}) => {
+const Sidebar = ({ generateArr, sort }) => {
     const [formState, setFormState] = useState({
         size: 10,
         algorithm: 'linear'
     });
     return (
-       <Box minW='xs' bg='gray.100' p={'4'} borderRadius='lg' overflow='hidden'>
-        <FormControl>
-            <FormLabel htmlFor='size'>{`Array Size (${formState.size})`}</FormLabel>
-            <Slider onChangeEnd={(v) => setFormState({...formState,size: v})} aria-label={'10'} min={10} max={200} defaultValue={10}>
-                <SliderTrack>
-                    <SliderFilledTrack/>
-                </SliderTrack>
-                <SliderThumb />
-            </Slider>
-        </FormControl>
-        <FormControl>
-            <FormLabel htmlFor='algorithm'>Algorithm</FormLabel>
-            <Select onChange={(v) => setFormState({...formState,algorithm: v})} bg={'white'} id='algorithm' variant={'outline'}>
-                <option value='simple'>Simple</option>
-                <option value='select'>Select</option>
-                <option value={'insert'}>Insertion</option>
-            </Select>
-        </FormControl>
-        <Flex gap={'3'} mt={'5'} direction='row'>
-            <Button onClick={() => {
-                generateArr(formState)
-            }}
-            colorScheme='purple'
-            >
-                Generate Array
-            </Button>
-            <Button onClick={sort} colorScheme='purple' variant='outline'>
-                Sort
-            </Button>
-        </Flex>
-       </Box>
+        <Box minW='xs' bg='gray.100' p={'4'} borderRadius='lg' overflow='hidden'>
+            <FormControl>
+                <FormLabel htmlFor='size'>{`Array Size (${formState.size})`}</FormLabel>
+                <Slider onChangeEnd={(v) => setFormState({ ...formState, size: v })} aria-label={'10'} min={10} max={200} defaultValue={10}>
+                    <SliderTrack>
+                        <SliderFilledTrack />
+                    </SliderTrack>
+                    <SliderThumb />
+                </Slider>
+            </FormControl>
+            <FormControl>
+                <FormLabel htmlFor='algorithm'>Algorithm</FormLabel>
+                <Select onChange={(v) => setFormState({ ...formState, algorithm: v })} bg={'white'} id='algorithm' variant={'outline'}>
+                    <option value='simple'>Simple</option>
+                    <option value='select'>Select</option>
+                    <option value={'insert'}>Insertion</option>
+                </Select>
+            </FormControl>
+            <Flex gap={'3'} mt={'5'} direction='row'>
+                <Button onClick={() => {
+                    generateArr(formState)
+                }}
+                    colorScheme='purple'
+                >
+                    Generate Array
+                </Button>
+                <Button onClick={sort} colorScheme='purple' variant='outline'>
+                    Sort
+                </Button>
+            </Flex>
+        </Box>
     )
 }
 
