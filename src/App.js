@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './routes/Home';
-import Sortvisualizer from './routes/Sortvisualizer';
+import Sortingvisualizer from './routes/Sortingvisualizer';
 import Navbar from './components/Navbar';
 
 function App() {
@@ -10,7 +10,7 @@ function App() {
     <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='sortvisualizer' element={<Sortvisualizer />} />
+        <Route path='sortingvisualizer' element={<Sortingvisualizer />} />
       </Routes>
     </BrowserRouter>
   )

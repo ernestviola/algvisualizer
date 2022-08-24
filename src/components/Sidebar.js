@@ -21,8 +21,8 @@ const Sidebar = ({ generateArr, sort }) => {
                 <FormLabel htmlFor='algorithm'>Algorithm</FormLabel>
                 <Select onChange={(v) => setFormState({ ...formState, algorithm: v })} bg={'white'} id='algorithm' variant={'outline'}>
                     <option value='simple'>Simple</option>
-                    <option value='select'>Select</option>
-                    <option value={'insert'}>Insertion</option>
+                    {/* <option value='select'>Select</option>
+                    <option value={'insert'}>Insertion</option> */}
                 </Select>
             </FormControl>
             <Flex gap={'3'} mt={'5'} direction='row'>
