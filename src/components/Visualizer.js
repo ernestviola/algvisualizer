@@ -7,8 +7,12 @@ const Visualizer = ({data}) => {
         {data.map((d)=> {
             return(
                 <Box display={'flex'} justifyContent='flex-end' textAlign={'center'} flexDirection='column'>
-                    <p>{d}</p>
-                    <Box roundedTop={'sm'} border={'1px'} borderColor={'blue.200'} bg={'blue.300'} style={{height: `${d}px`}}></Box>
+                    <p>{d.value}</p>
+                    {
+                      d.highlight ? <Box roundedTop={'sm'} border={'1px'} borderColor={'green.200'} bg={'green.300'} style={{height: `${d.value}px`}}></Box> :
+                      <Box roundedTop={'sm'} border={'1px'} borderColor={'blue.200'} bg={'blue.300'} style={{height: `${d.value}px`}}></Box>
+                    }
+                    
                 </Box>
             );
         })}
