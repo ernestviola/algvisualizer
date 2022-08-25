@@ -48,13 +48,11 @@ const Sortvisualizer = () => {
 
         console.log(queue.length)
 
-        setTimeout(() => {
             for (let i = 0; i <= queue.length; i++) {
                 setTimeout(() => {
                     setArr([...queue[i]])
                 }, 200 * i)
             }
-        },500)
         setSorting(false);
     }
 
