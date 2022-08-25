@@ -15,7 +15,7 @@ const Sortvisualizer = () => {
         setGenerating(true)
         while (newArr.length <= formState.size) {
             let random = Math.floor(Math.random() * (200 - 10) + 10);
-            newArr.push({value: random, highlight: false});
+            newArr.push({ value: random, highlight: false });
         }
         setArr([...newArr]);
         setGenerating(false)
@@ -27,16 +27,16 @@ const Sortvisualizer = () => {
         let newArr = [...arr];
         let queue = [];
         for (let i = 0; i < arr.length; i++) {
-            for (let j = i+1; j < arr.length; j++) {
+            for (let j = i + 1; j < arr.length; j++) {
                 if (newArr[i].value > newArr[j].value) {
                     let tempArr = [...newArr]
                     let temp = newArr[i]
                     newArr[i] = newArr[j]
                     newArr[j] = temp
 
-                    
-                    let temp2 = {value: tempArr[i].value, highlight: true}
-                    tempArr[i] = {value: tempArr[j].value, highlight: true};
+
+                    let temp2 = { value: tempArr[i].value, highlight: true }
+                    tempArr[i] = { value: tempArr[j].value, highlight: true };
                     tempArr[j] = temp2;
 
                     let newStep = [...tempArr]
@@ -46,13 +46,18 @@ const Sortvisualizer = () => {
             }
         }
 
+        for (let i = 0; i < newArr.length; i++) {
+            newArr[i] = {value: newArr[i].value,highlight:true}
+            queue.push([...newArr])
+        }
+
         console.log(queue.length)
 
-            for (let i = 0; i <= queue.length; i++) {
-                setTimeout(() => {
-                    setArr([...queue[i]])
-                }, 200 * i)
-            }
+        for (let i = 0; i <= queue.length; i++) {
+            setTimeout(() => {
+                setArr([...queue[i]])
+            }, 40 * i)
+        }
         setSorting(false);
     }
 
@@ -86,10 +91,10 @@ const Sortvisualizer = () => {
 
     return (
         <Box p={'4'}>
-            
-                <Sidebar generateArr={generateArr} sort={simple} />
-                <Visualizer data={arr} />
-            
+
+            <Sidebar generateArr={generateArr} sort={simple} />
+            <Visualizer data={arr} />
+
         </Box>
     )
 }
