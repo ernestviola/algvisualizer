@@ -12,7 +12,6 @@ const Sortvisualizer = () => {
     const [algorithm, setAlgorithm] = useState('simple');
 
     const chooseAlgorithm = () => {
-        console.log(algorithm)
         if (algorithm === 'selectionsort') {
             return selectionsort
         } 
@@ -73,7 +72,6 @@ const Sortvisualizer = () => {
     }
 
     const bubblesort = () => {
-        console.log('quicksort')
         setSorting(true)
 
 
