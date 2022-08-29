@@ -1,10 +1,9 @@
 import React, { useState } from 'react'
 import { Box, Button, Flex, FormControl, FormLabel, Slider, SliderFilledTrack, SliderThumb, SliderTrack, Select } from '@chakra-ui/react';
 
-const Sidebar = ({ generateArr, sort }) => {
+const Sidebar = ({ setAlgorithm, generateArr, sort }) => {
     const [formState, setFormState] = useState({
-        size: 10,
-        algorithm: 'linear'
+        size: 10
     });
     return (
         <Box minW='xs' bg='gray.100' p={'4'} borderRadius='lg' overflow='hidden'>
@@ -19,8 +18,9 @@ const Sidebar = ({ generateArr, sort }) => {
             </FormControl>
             <FormControl>
                 <FormLabel htmlFor='algorithm'>Algorithm</FormLabel>
-                <Select onChange={(v) => setFormState({ ...formState, algorithm: v })} bg={'white'} id='algorithm' variant={'outline'}>
-                    <option value='simple'>Simple</option>
+                <Select onChange={(e) => setAlgorithm(e.target.value)} bg={'white'} id='algorithm' variant={'outline'}>
+                    <option value='selectionsort'>Selection Sort</option>
+                    <option value='bubblesort'>Bubble Sort</option>
                     {/* <option value='select'>Select</option>
                     <option value={'insert'}>Insertion</option> */}
                 </Select>

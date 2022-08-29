@@ -1,0 +1,22 @@
+.itemContainer {
+    height: 20px;
+}
+
+.item {
+
+    margin: 0px;
+    border: 2px;
+    padding: 0px;
+    height: inherit;
+    width: 20px;
+    border-style: solid;
+    border-color: black;
+    display: inline-block;
+    background-color: white;
+    color: black;
+    text-align: center;
+}
+
+.current {
+    background-color: aquamarine;
+}

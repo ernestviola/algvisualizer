@@ -9,6 +9,17 @@ const Sortvisualizer = () => {
     const [arr, setArr] = useState([]);
     const [generating, setGenerating] = useState(false);
     const [sorting, setSorting] = useState(false);
+    const [algorithm, setAlgorithm] = useState('simple');
+
+    const chooseAlgorithm = () => {
+        console.log(algorithm)
+        if (algorithm === 'selectionsort') {
+            return selectionsort
+        } 
+        else if (algorithm === 'bubblesort'){
+            return bubblesort
+        }
+    }
 
     const generateArr = (formState) => {
         let newArr = [];
@@ -21,7 +32,7 @@ const Sortvisualizer = () => {
         setGenerating(false)
     };
 
-    const simple = () => {
+    const selectionsort = () => {
         setSorting(true);
 
         let newArr = [...arr];
@@ -61,27 +72,11 @@ const Sortvisualizer = () => {
         setSorting(false);
     }
 
-    const sort = () => {
+    const bubblesort = () => {
+        console.log('quicksort')
         setSorting(true)
-        setTimeout(() => {
-            let newArr = [...arr];
-            for (let i = 0; i < arr.length; i++) {
-                setTimeout(() => {
-                    for (let j = i + 1; j < arr.length; j++) {
-                        if (newArr[i] > newArr[j]) {
-                            let temp = newArr[i]
-                            newArr[i] = newArr[j];
-                            newArr[j] = temp
 
-                            let newStep = [...newArr]
-                            setTimeout(() => {
-                                setArr([...newStep])
-                            }, j * 100)
-                        }
-                    }
-                }, i * 1000)
-            }
-        }, 500)
+
         setSorting(false)
     }
 
@@ -92,7 +87,7 @@ const Sortvisualizer = () => {
     return (
         <Box p={'4'}>
 
-            <Sidebar generateArr={generateArr} sort={simple} />
+            <Sidebar setAlgorithm={setAlgorithm} generateArr={generateArr} sort={chooseAlgorithm()} />
             <Visualizer data={arr} />
 
         </Box>
