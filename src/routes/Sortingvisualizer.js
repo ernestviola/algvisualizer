@@ -23,7 +23,7 @@ const Sortvisualizer = () => {
     const generateArr = (formState) => {
         let newArr = [];
         setGenerating(true)
-        while (newArr.length <= formState.size) {
+        while (newArr.length <= formState.size - 1) {
             let random = Math.floor(Math.random() * (200 - 10) + 10);
             newArr.push({ value: random, highlight: false });
         }
@@ -63,7 +63,7 @@ const Sortvisualizer = () => {
 
         console.log(queue.length)
 
-        for (let i = 0; i <= queue.length; i++) {
+        for (let i = 0; i < queue.length; i++) {
             setTimeout(() => {
                 setArr([...queue[i]])
             }, 40 * i)
@@ -73,8 +73,40 @@ const Sortvisualizer = () => {
 
     const bubblesort = () => {
         setSorting(true)
+        let newArr = [...arr];
+        let queue = [];
+        let sorted = false
+        console.log(newArr.length)
+        while (!sorted) {
 
+            sorted = true
+            for (let i = 1; i < newArr.length; i++) {
+                if (newArr[i].value < newArr[i-1].value) {
+                    sorted = false
+                    let tempArr = [...newArr]
+                    let temp = newArr[i]
+                    newArr[i] = newArr[i-1]
+                    newArr[i-1] = temp
 
+                    let temp2 = {value: tempArr[i].value, highlight: true }
+                    tempArr[i] = {value: tempArr[i-1].value, highlight: true }
+                    tempArr[i-1] = temp2
+                    queue.push([...tempArr])
+                }
+            }
+        }
+
+        for (let i = 0; i < newArr.length; i++) {
+            newArr[i] = {value: newArr[i].value,highlight:true}
+            queue.push([...newArr])
+        }
+
+        console.log(queue.length)
+        for (let i = 0; i < queue.length; i++) {
+            setTimeout(() => {
+                setArr([...queue[i]])
+            }, 40 * i)
+        }
         setSorting(false)
     }
 
