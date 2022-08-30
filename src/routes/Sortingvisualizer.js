@@ -17,6 +17,8 @@ const Sortvisualizer = () => {
         } 
         else if (algorithm === 'bubblesort'){
             return bubblesort
+        } else if (algorithm === 'insertionsort') {
+            return insertionsort
         }
     }
 
@@ -108,6 +110,10 @@ const Sortvisualizer = () => {
             }, 40 * i)
         }
         setSorting(false)
+    }
+
+    const insertionsort = () => {
+        alert('Not Yet Implemented')
     }
 
     useEffect(() => {
