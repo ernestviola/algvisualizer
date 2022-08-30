@@ -6,7 +6,7 @@ const Sidebar = ({ setAlgorithm, generateArr, sort }) => {
         size: 10
     });
     return (
-        <Box minW='xs' bg='gray.100' p={'4'} borderRadius='lg' overflow='hidden'>
+        <Box minW='xs' bg='gray.100' p={'4'} borderTopRadius={'lg'} overflow='hidden' minHeight={'25vh'}>
             <FormControl>
                 <FormLabel htmlFor='size'>{`Array Size (${formState.size})`}</FormLabel>
                 <Slider onChangeEnd={(v) => setFormState({ ...formState, size: v })} aria-label={'10'} min={10} max={200} defaultValue={10}>
