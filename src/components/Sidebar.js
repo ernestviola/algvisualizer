@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Button, Flex, FormControl, FormLabel, Slider, SliderFilledTrack, SliderThumb, SliderTrack, Select } from '@chakra-ui/react';
+import { Box, Button, Flex, FormControl, FormLabel, Slider, SliderFilledTrack, SliderThumb, SliderTrack, Select, NumberInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper } from '@chakra-ui/react';
 
 const Sidebar = ({ setAlgorithm, generateArr, sort }) => {
     const [formState, setFormState] = useState({
@@ -8,13 +8,14 @@ const Sidebar = ({ setAlgorithm, generateArr, sort }) => {
     return (
         <Box minW='xs' bg='gray.100' p={'4'} borderTopRadius={'lg'} overflow='hidden' minHeight={'25vh'}>
             <FormControl>
-                <FormLabel htmlFor='size'>{`Array Size (${formState.size})`}</FormLabel>
-                <Slider onChangeEnd={(v) => setFormState({ ...formState, size: v })} aria-label={'10'} min={10} max={200} defaultValue={10}>
-                    <SliderTrack>
-                        <SliderFilledTrack />
-                    </SliderTrack>
-                    <SliderThumb />
-                </Slider>
+                <FormLabel htmlFor='size'>{`Array Size`}</FormLabel>
+                <NumberInput  onChange={(v) => setFormState({...formState, size: v})} defaultValue={10} min={10} max={200} bg={'white'}>
+                    <NumberInputField />
+                    <NumberInputStepper>
+                        <NumberIncrementStepper />
+                        <NumberDecrementStepper />
+                    </NumberInputStepper>
+                </NumberInput>
             </FormControl>
             <FormControl>
                 <FormLabel htmlFor='algorithm'>Algorithm</FormLabel>
