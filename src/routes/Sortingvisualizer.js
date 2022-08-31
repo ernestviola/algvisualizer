@@ -80,7 +80,6 @@ const Sortvisualizer = () => {
         let newArr = [...arr];
         let queue = [];
         let sorted = false
-        console.log(newArr.length)
         while (!sorted) {
 
             sorted = true
