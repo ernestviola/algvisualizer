@@ -22,6 +22,7 @@ const Sidebar = ({ setAlgorithm, generateArr, sort }) => {
                     <option value='selectionsort'>Selection Sort</option>
                     <option value='bubblesort'>Bubble Sort</option>
                     <option value='insertionsort'>Insertion Sort</option>
+                    <option value='mergesort'>Merge Sort</option>
                     {/* <option value='select'>Select</option>
                     <option value={'insert'}>Insertion</option> */}
                 </Select>

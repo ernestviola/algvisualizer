@@ -19,6 +19,8 @@ const Sortvisualizer = () => {
             return bubblesort
         } else if (algorithm === 'insertionsort') {
             return insertionsort
+        } else if (algorithm === 'mergesort') {
+            return mergesort
         }
     }
 
@@ -154,6 +156,11 @@ const Sortvisualizer = () => {
         }
 
         setSorting(false);
+    }
+
+    const mergesort = () => {
+        alert('Not yet implemented')
+
     }
 
     useEffect(() => {
