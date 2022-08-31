@@ -113,7 +113,47 @@ const Sortvisualizer = () => {
     }
 
     const insertionsort = () => {
-        alert('Not Yet Implemented')
+        // alert('Not Yet Implemented');
+        setSorting(true);
+        let newArr = [...arr];
+        let queue = [];
+        for (let i = 1; i < newArr.length; i++) {
+            //swap down to 0 or if it doesn't change
+            let current = i;
+            let previous = i-1;
+            while (true ) {
+                
+                if (previous === -1 || newArr[current].value > newArr[previous].value) break;
+                // swap till previous
+                // swap
+                let tempArr = [...newArr];
+                let temp = newArr[current];
+                newArr[current] = newArr[previous];
+                tempArr[current] = {value: tempArr[previous].value, highlight: true};
+                newArr[previous] = temp;
+                tempArr[previous] = {value: temp.value, highlight: true};
+
+                queue.push([...tempArr]);
+
+                current = current - 1;
+                previous = previous - 1;
+                
+            }
+        }
+
+        for (let i = 0; i < newArr.length; i++) {
+            newArr[i] = {value: newArr[i].value,highlight:true}
+            queue.push([...newArr])
+        }
+
+        console.log(queue.length)
+        for (let i = 0; i < queue.length; i++) {
+            setTimeout(() => {
+                setArr([...queue[i]])
+            }, 40 * i)
+        }
+
+        setSorting(false);
     }
 
     useEffect(() => {
