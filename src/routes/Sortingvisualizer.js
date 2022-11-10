@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 
 const Sortvisualizer = () => {
     const [arr, setArr] = useState([]);
+    const [queue, setQueue] = useState([]);
     const [generating, setGenerating] = useState(false);
     const [sorting, setSorting] = useState(false);
     const [algorithm, setAlgorithm] = useState('selectionsort');
@@ -39,7 +40,7 @@ const Sortvisualizer = () => {
         setSorting(true);
 
         let newArr = [...arr];
-        let queue = [];
+        setQueue([]);
         for (let i = 0; i < arr.length; i++) {
             for (let j = i + 1; j < arr.length; j++) {
                 if (newArr[i].value > newArr[j].value) {
@@ -78,7 +79,7 @@ const Sortvisualizer = () => {
     const bubblesort = () => {
         setSorting(true)
         let newArr = [...arr];
-        let queue = [];
+        setQueue([]);
         let sorted = false
         while (!sorted) {
 
@@ -117,7 +118,7 @@ const Sortvisualizer = () => {
         // alert('Not Yet Implemented');
         setSorting(true);
         let newArr = [...arr];
-        let queue = [];
+        setQueue([]);
         for (let i = 1; i < newArr.length; i++) {
             //swap down to 0 or if it doesn't change
             let current = i;
@@ -158,66 +159,13 @@ const Sortvisualizer = () => {
     }
 
     const mergesort = () => {
-        alert('Not yet implemented')
-        let newArr = [...arr]
-        mergesortRecursiveHelper(newArr,0,newArr.length-1)
-    }
+        setSorting(true)
+        let newArr = [...arr];
 
-    const mergesortRecursiveHelper = (a,l,r) => {
-        if (l>r) {
-            return;
-        }
+        setQueue([]);
 
-        let m = l + parseInt((r-1)/2);
-
-        mergesortRecursiveHelper(a,l,m)
-        mergesortRecursiveHelper(a,m+1,r)
-        mergesortRecursiveHelperMerge(a,l,m,r)
         
-        
-    }
 
-    const mergesortRecursiveHelperMerge = (a,l,m,r) => {
-        alert('Not yet implemented')
-
-        let n1 = m-l+1
-        let n2 = r-m
-        let L = new Array(n1)
-        let R = new Array(n2)
-
-        for (let i = 0; i <n1; i++) {
-            L[i] = arr[l+i]
-        }
-        for (let j = 0; i <n1; i++) {
-            R[j] = a[m+j]
-        }
-
-        var i = 0;
-        var j = 0;
-        var k = l;
-
-        while (i < n1 && j < n2) {
-            if (L[i] <= R[j]) {
-                a[k] =L[i];
-                i++
-            }
-            else {
-                a[k] = R[j]
-                j++
-            }
-            k++
-        }
-
-        while (i < n1) {
-            a[k] = L[i]
-            i++;
-            k++;
-        }
-        while (j < n2) {
-            a[k] = L[j]
-            j++;
-            k++;
-        }
     }
 
     useEffect(() => {
